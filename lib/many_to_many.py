@@ -73,11 +73,10 @@ class Contract:
         if not isinstance(value, str):
             raise Exception("date must be a string")
         try:
-            datetime.strptime(value, "%Y-%m-%d")  # Validate format
+            datetime.strptime(value, "%d/%m/%Y")  # Correct format: DD/MM/YYYY
         except ValueError:
-            raise Exception("date must be in YYYY-MM-DD format")
+            raise Exception("date must be in DD/MM/YYYY format")
         self._date = value
-
     @property
     def royalties(self):
         return self._royalties
